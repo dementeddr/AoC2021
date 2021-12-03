@@ -10,7 +10,7 @@ namespace Advent2021
 	{
 		static void Main(string[] args)
 		{
-			string filename = $"Day{args[0]}/day{args[0]}" + "-input.txt";
+			string filename = $"Day{args[0]}/" + (args.Length < 2 ? $"day{args[0]}-input.txt" : args[2]);
 			string classname = $"Advent2021.Day{args[0]}.Day{args[0]}p{args[1]}";
 			var data = new List<string>();
 
