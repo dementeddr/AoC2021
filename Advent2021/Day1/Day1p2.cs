@@ -4,20 +4,18 @@ using System.Text;
 
 namespace Advent2021.Day1
 {
-	class Day1p2
+	public class Day1p2
 	{
-		static void otherMain(string[] args)
+		public static void Run(List<string> data)
 		{
-			//var data = new List<int>();
 			int win1 = Int32.MaxValue;
 			int win2 = Int32.MaxValue;
 			int prevWin = Int32.MaxValue;
 			int iteration = 0;
 			int slope = 0;
 
-			foreach (string line in System.IO.File.ReadLines("Day1/day1-input.txt"))
+			foreach (string line in data)
 			{
-				//data.Add(Convert.ToInt32(line));
 				int depth = Convert.ToInt32(line);
 				int newWin = win1 + win2 + depth;
 

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Advent2021.Test
 {
-	class TestDay
+	class Day0p0
 	{
-		static void notMain(string[] args)
+		static void Run(string[] args)
 		{
 			//var data = new SortedSet<int>();
 			var data = new List<int>();

@@ -4,17 +4,15 @@ using System.Text;
 
 namespace Advent2021.Day1
 {
-	class Day1
+	public class Day1p1
 	{
-		static void stillnotMain(string[] args)
+		public static void Run(List<string> data)
 		{
-			//var data = new List<int>();
 			int prev = Int32.MaxValue;
 			int slope = 0;
 
-			foreach (string line in System.IO.File.ReadLines("Day1/day1-input.txt"))
+			foreach (string line in data)
 			{
-				//data.Add(Convert.ToInt32(line));
 				int depth = Convert.ToInt32(line);
 
 				if (depth > prev)
