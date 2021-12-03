@@ -23,17 +23,15 @@ namespace Advent2021.Day3
 				}
 			}
 
-			int[] bits = new int[rates.Length];
 			string gammaStr = "";
 
 			for (int i = 0; i < rates.Length; i++)
 			{
+				int bit = 0;
 				if (rates[i] >= 0)
-					bits[i] = 1;
-				else if (rates[i] < 0)
-					bits[i] = 0;
+					bit = 1;
 
-				gammaStr += bits[i];
+				gammaStr += bit;
 			}
 
 			Console.WriteLine($"Binary: {gammaStr}");
