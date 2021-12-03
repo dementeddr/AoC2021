@@ -18,7 +18,7 @@ namespace Advent2021.Test
 
 			foreach (int val in data)
 			{
-				for (int i = data.Count - 1; i >= 0; i--)
+				for (int i = data.Count - 1; i >= 0; )
 				{
 					int sum = val + data[i];
 					if (sum < 2020)

@@ -25,10 +25,10 @@ namespace Advent2021.Day3
 
 			string gammaStr = "";
 
-			for (int i = 0; i < rates.Length; i++)
+			foreach (int common in rates)
 			{
 				int bit = 0;
-				if (rates[i] >= 0)
+				if (common >= 0)
 					bit = 1;
 
 				gammaStr += bit;
