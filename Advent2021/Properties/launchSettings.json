@@ -2,7 +2,7 @@
   "profiles": {
     "Advent2021": {
       "commandName": "Project",
-      "commandLineArgs": "4 2 day4-input.txt"
+      "commandLineArgs": "4 2"
     }
   }
 }

@@ -22,20 +22,26 @@ namespace Advent2021.Day4
 
 			foreach (int call in calls)
 			{
-				for (int i = 0; i<boards.Count && boards.Count > 1; )
+				for (int i = 0; i<boards.Count; )
 				{
 					int result = boards[i].CheckBoard(call);
 
 					if (result > 0)
 					{
-						score = result;
-						boards.RemoveAt(i);
+						if (boards.Count > 1)
+							boards.RemoveAt(i);
+						else
+						{
+							score = result * call;
+							break;
+						}
+
 					}
 					else
 						i++;
 				}
 
-				if (boards.Count <= 1)
+				if (score > 0)
 					break;
 			}
 
