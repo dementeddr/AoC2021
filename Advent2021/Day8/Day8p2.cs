@@ -37,11 +37,6 @@ namespace Advent2021.Day8
 					!foundDigits[4].IsProperSubsetOf(x) && foundDigits[1].IsProperSubsetOf(x) && x.Count == 6);
 				foundDigits[5] = digits.First(x => x.IsProperSubsetOf(foundDigits[6]));
 				foundSegments['F'] = foundDigits[1].Intersect(foundDigits[6]).First();
-
-
-				var temp = digits.Where(x => x.Count >= 5).ToHashSet();
-				//var temp2 = temp.Aggregate(foundDigits[8], (a,b) => new SortedSet<char>(b.Intersect(a).ToList()));
-
 				foundSegments['G'] = digits.Where(x => x.Count >= 5)
 					.Aggregate((prev, next) => new SortedSet<char>(prev.Intersect(next).ToList())).First(x=> x != foundSegments['A']);
 
@@ -60,8 +55,6 @@ namespace Advent2021.Day8
 
 				foreach (var dDigit in display)
 				{
-					//foundDigits.First(x => x.SetEquals(dDigit));
-
 					for (int i = 0; i < 10; i++)
 					{
 						if (foundDigits[i].SetEquals(dDigit))
