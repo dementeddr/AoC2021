@@ -4,26 +4,28 @@ using System.Text;
 
 namespace Advent2021.Day10
 {
-	public class Day10p1
+	public class Day10p2
 	{
 		private static string openings = "[({<";
 		private static string closings = "])}>";
 
 		private static Dictionary<char, int> scoring = new Dictionary<char, int>()
 		{
-			{')', 3},
-			{']', 57},
-			{'}', 1197},
-			{'>', 25137}
+			{'(', 1},
+			{'[', 2},
+			{'{', 3},
+			{'<', 4}
 		};
 
 		public static void Run(List<string> data)
 		{
-			int score = 0;
+			var scores = new List<long>();
 
 			foreach (var line in data)
 			{
-				var stack = new Stack<char>();
+				var stack = new Stack<char>(); 
+				long score = 0;
+				bool isCorrupt = false;
 				Console.Write(line);
 
 				foreach (var bracket in line)
@@ -40,16 +42,27 @@ namespace Advent2021.Day10
 
 						if (closings.IndexOf(bracket) != openings.IndexOf(match))
 						{
-							Console.Write($"  Found {bracket} but expected match for {match}");
-							score += scoring[bracket];
+							Console.Write($"   Corrupted: Found {bracket} but expected match for {match}");
+							isCorrupt = true;
 							break;
 						}
 					}
 				}
+
+				if (!isCorrupt)
+				{
+					foreach (var bracket in stack)
+					{
+						score = (score * 5) + scoring[bracket];
+					}
+					scores.Add(score);
+				}
 				Console.WriteLine($"   Score = {score}");
 			}
 
-			Console.WriteLine($"Your nitpicker score is {score}");
+			scores.Sort();
+
+			Console.WriteLine($"Your median completionist score is {scores[scores.Count / 2]}");
 		}
 	}
 }
